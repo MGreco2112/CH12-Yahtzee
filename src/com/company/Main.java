@@ -8,9 +8,9 @@ public class Main {
 
         // add boolean state to signify if a win has occured. While loop the code to continue running if bool is false.
 
-        boolean isWinner = false;
+        boolean isLoser = false;
 
-        while (!isWinner) {
+        while (!isLoser) {
             Scanner scanner = new Scanner(System.in);
             Die die1 = new Die();
             Die die2 = new Die();
@@ -40,16 +40,16 @@ public class Main {
             if (input == "h") {
                 if (isLarger) {
                     System.out.println("You win!");
-                    isWinner = true;
                 } else {
                     System.out.println("You lose!");
+                    isLoser = true;
                 }
             } else {
                 if (isLarger) {
                     System.out.println("You lose!");
+                    isLoser = true;
                 } else {
                     System.out.println("You win!");
-                    isWinner = true;
                 }
             }
         }
