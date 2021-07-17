@@ -9,6 +9,7 @@ public class Main {
         // add boolean state to signify if a win has occured. While loop the code to continue running if bool is false.
 
         boolean isLoser = false;
+        int winStreak = 0;
 
         while (!isLoser) {
             Scanner scanner = new Scanner(System.in);
@@ -39,17 +40,19 @@ public class Main {
 
             if (input == "h") {
                 if (isLarger) {
-                    System.out.println("You win!");
+                    winStreak++;
+                    System.out.println("You win! Current streak: " + winStreak);
                 } else {
-                    System.out.println("You lose!");
+                    System.out.println("You lose! Total streak: " + winStreak);
                     isLoser = true;
                 }
             } else {
                 if (isLarger) {
-                    System.out.println("You lose!");
+                    System.out.println("You lose! Total streak: " + winStreak);
                     isLoser = true;
                 } else {
-                    System.out.println("You win!");
+                    winStreak++;
+                    System.out.println("You win! Current streak: " + winStreak);
                 }
             }
         }
