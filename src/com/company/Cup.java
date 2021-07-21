@@ -40,6 +40,10 @@ public class Cup {
             selections.add(Integer.parseInt(number) - 1);
         }
 
+        if (selections.contains(-1)) {
+            selections.remove(selections.indexOf(-1));
+        }
+
         return selections;
     }
 

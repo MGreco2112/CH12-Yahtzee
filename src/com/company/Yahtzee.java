@@ -16,14 +16,13 @@ public class Yahtzee {
 
     public void getSelections() {
 
-        System.out.println("Which dice do you want to reroll? (1-5)");
+        System.out.println("Which dice do you want to re-roll? (0-5)");
 
         String input = scanner.nextLine();
 
         player.cup.roll(player.cup.parseSelections(input));
     }
 
-    // TODO refactor turn to trigger scoring and display round score
     public void turn() {
         player.cup.roll();
 
@@ -33,10 +32,17 @@ public class Yahtzee {
         }
 
         System.out.println(player.cup.displayCup());
+        System.out.println("Round Score:");
+        System.out.println(player.updateScore());
+        System.out.println("Next Round!");
     }
 
-    // TODO refactor play system to run 5 turns and update score *(and display total scores)
     public void play() {
-        turn();
+        int turnCount = 0;
+        while (turnCount < 5) {
+            turn();
+            turnCount++;
+        }
+        System.out.println(player.name + " ended with a score of " + player.score + " points!\nGame Over");
     }
 }
